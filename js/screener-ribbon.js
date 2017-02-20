@@ -262,15 +262,22 @@ function addRibbonPromise() {
       document.getElementById('ribbon').contentEditable = true;
       document.getElementById('star-rating').contentEditable = true;
 
-      var style = '<style>'
-      + '.poster-wrapper {'
-      + '  position: relative;'
-      + '  display: table;'
-      + '  width: 450px;'
-      + '  height: 675px;'
-      + '}'
-      + 'img { width: 100%; height: 100% }'
-      + `.ratings {
+      var style = `
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+          position: absolute;
+          background-color: white;
+        }
+        .poster-wrapper {
+          position: relative;
+          display: table;
+          width: 450px;
+          height: 675px;
+        }
+        img { width: 100%; height: 100% }
+        .ratings {
           position: absolute;
           width: 450px;
           height: 675px;
@@ -317,73 +324,71 @@ function addRibbonPromise() {
         .star-rating > i,span {
           float: left;
         }
-        `
-      + '.ribbon {'
-      + '  position: absolute;'
-      + '  top: 0;'
-      + '  right: 0px;'
-      + '  background-color: rgb(144, 144, 144);'
-      + '  box-shadow: 0 0 5px #555;'
-      + '  padding: 0;'
-      + '  width: 301px;'
-      + '  text-align: center;'
-      + '  line-height: 2.2em;'
-      + '  transform: rotate(45deg) translateX(30%) translateY(-15%);'
-      + '  text-transform: uppercase;'
-      + '  color: #fff;'
-      + '  font-weight: bold;'
-      + '  font-size: 1.5em;'
-      + '  font-family: sans-serif;'
-      + '}'
-      + 'a.poster {'
-      + '  float: left;'
-      + '  display: table;'
-      + '  box-shadow: 3px 3px 10px #000;'
-      + '  margin-bottom: 10px;'
-      + '  cursor: pointer;'
-      + '}'
-      + '#notifier {'
-      + '  float: left;'
-      + '  height: 675px;'
-      + '  position: relative;'
-      + '}'
-      + '#notifier .message {'
-      + '  position: absolute;'
-      + '  width: 250px;'
-      + '  margin-left: 1000px;'
-      + '  transition: all 2s cubic-bezier(0.68, -0.55, 0.27, 1.55);'
-      + '}'
-      + '.in-place {'
-      + '  margin-top: 50px;'
-      + '  margin-left: 20px!important;'
-      + '}'
-      + '.circle {'
-      + '  float: left;'
-      + '  height: 30px;'
-      + '  width: 30px;'
-      + '  border-radius: 15px;'
-      + '  margin: 5px;'
-      + '  cursor: pointer;'
-      + `  text-align: center;
-           line-height: 40px;
-           box-shadow: 0 0 3px #444;
-        `
-      + '}'
-      + `.circle.selected {
+        .ribbon {
+          position: absolute;
+          top: 0;
+          right: 0px;
+          background-color: rgb(144, 144, 144);
+          box-shadow: 0 0 5px #555;
+          padding: 0;
+          width: 301px;
+          text-align: center;
+          line-height: 2.2em;
+          transform: rotate(45deg) translateX(30%) translateY(-15%);
+          text-transform: uppercase;
+          color: #fff;
+          font-weight: bold;
+          font-size: 1.5em;
+          font-family: sans-serif;
+        }
+        a.poster {
+          float: left;
+          display: table;
+          box-shadow: 3px 3px 10px #000;
+          margin-bottom: 10px;
+          cursor: pointer;
+        }
+        #notifier {
+          float: left;
+          height: 675px;
+          position: relative;
+        }
+        #notifier .message {
+          position: absolute;
+          width: 250px;
+          margin-left: 1000px;
+          transition: all 2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .in-place {
+          margin-top: 50px;
+          margin-left: 20px!important;
+        }
+        .circle {
+          float: left;
+          height: 30px;
+          width: 30px;
+          border-radius: 15px;
+          margin: 5px;
+          cursor: pointer;
+          text-align: center;
+          line-height: 40px;
+          box-shadow: 0 0 3px #444;
+        }
+        .circle.selected {
           box-shadow: 0 0 1px 5px #000
-        }`
-      + '.clearfix:after {'
-      + ` visibility: hidden;
+        }
+        .clearfix:after {
+          visibility: hidden;
           display: block;
           font-size: 0;
           content: " ";
           clear: both;
-          height: 0;`
-      + '}'
-      + `.swatches {
+          height: 0;
+        }
+        .swatches {
           margin: 7px 5px;
-        }`
-      + `.check {
+        }
+        .check {
           position: absolute;
           bottom: 15px;
           right: 15px;
@@ -395,8 +400,8 @@ function addRibbonPromise() {
           background-color: green;
           border: 1px solid #fff;
           cursor: pointer;
-        }`
-      + '</style>';
+        }
+      </style>`;
 
       $('head').append(style);
 
