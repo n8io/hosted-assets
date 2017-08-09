@@ -85,7 +85,7 @@ function getPosterUrlPromise() {
       return resolve();
     }
 
-    var $poster = $('.movie-poster');
+    var $poster = $($('[class^="PosterCardImg-imageContainer"]:eq(0) > div:eq(0)')[0]);
     var reg = /^url\("(.+)"\)$/gi;
     var url = reg.exec($poster.css('backgroundImage'))[1];
 
@@ -99,7 +99,7 @@ function addTitleLinkPromise(url) {
       return resolve();
     }
 
-    var $title = $('.item-title');
+    var $title = $('[class^="PrePlayLeftTitle-leftTitle-"]:eq(0)');
     var txt = $title.text();
 
     $title
