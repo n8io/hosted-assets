@@ -267,12 +267,15 @@ function addRibbonPromise() {
         body {
           margin: 0;
           padding: 0;
+          width: 900px !important;
+          height: 675px !important;
           position: absolute;
-          background-color: white;
+          background-color: #fff !important;
         }
         .poster-wrapper {
-          position: relative;
-          display: table;
+          position: absolute;
+          left: 0;
+          top: 0;
           width: 450px;
           height: 675px;
         }
